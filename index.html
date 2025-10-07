@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        overflow: hidden;
+      }
+
+      .center {
+        display: flex;
+        justify-content: center;
+      }
+
+      .slot {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+      }
+
+      .container {
+        background-color: #808080;
+        width: 100px;
+        height: 300px;
+        /* padding: 10px; */
+      }
+      .reel1,
+      .reel2,
+      .reel3 {
+        position: absolute;
+        display: grid;
+        grid-template-rows: auto auto auto;
+        background-color: white;
+        /* border: 1px solid black; */
+
+        /* animation: moveDown 1s linear; */
+        animation-play-state: paused;
+      }
+      .reel1 .item1,
+      .reel2 .item2,
+      .reel3 .item3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        box-sizing: border-box;
+      }
+
+      .mask {
+        position: absolute;
+        width: 100px;
+        height: 400px;
+      }
+
+      .mask-top {
+        width: 100px;
+        height: 100px;
+        background-color: black;
+      }
+
+      .mask-visible {
+        width: 100px;
+        height: 300px;
+        box-sizing: border-box;
+        border: 5px solid gray;
+        box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+      }
+
+      .mask-bottom {
+        width: 100px;
+        height: 500px;
+        background-color: black;
+      }
+
+      @keyframes moveDown {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(100px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="slot">
+        <div class="container">
+          <div class="reel1">
+            <div class="item1"><p>1</p></div>
+            <div class="item1"><p>2</p></div>
+            <div class="item1"><p>3</p></div>
+            <div class="item1"><p>4</p></div>
+            <div class="item1"><p>5</p></div>
+            <div class="item1"><p>6</p></div>
+            <div class="item1"><p>7</p></div>
+            <div class="item1"><p>8</p></div>
+          </div>
+          <div class="mask">
+            <div class="mask-top"></div>
+            <div class="mask-visible"></div>
+            <div class="mask-bottom"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="reel2">
+            <div class="item2"><p>1</p></div>
+            <div class="item2"><p>2</p></div>
+            <div class="item2"><p>3</p></div>
+            <div class="item2"><p>4</p></div>
+            <div class="item2"><p>5</p></div>
+            <div class="item2"><p>6</p></div>
+            <div class="item2"><p>7</p></div>
+            <div class="item2"><p>8</p></div>
+          </div>
+          <div class="mask">
+            <div class="mask-top"></div>
+            <div class="mask-visible"></div>
+            <div class="mask-bottom"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="reel3">
+            <div class="item3"><p>1</p></div>
+            <div class="item3"><p>2</p></div>
+            <div class="item3"><p>3</p></div>
+            <div class="item3"><p>4</p></div>
+            <div class="item3"><p>5</p></div>
+            <div class="item3"><p>6</p></div>
+            <div class="item3"><p>7</p></div>
+            <div class="item3"><p>8</p></div>
+          </div>
+          <div class="mask">
+            <div class="mask-top"></div>
+            <div class="mask-visible"></div>
+            <div class="mask-bottom"></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button onclick="runAllThree()">-----SPIN-----</button>
+      </div>
+    </div>
+
+    <script>
+      class Reel {
+        constructor(reelSelector, itemSelector) {
+          this.reel = document.querySelector(reelSelector);
+          this.items = document.querySelectorAll(itemSelector);
+          this.reset();
+        }
+
+        reset() {
+          this.maxRepeats = Math.floor(Math.random() * (20 + 1)) + 30;
+          this.count = 0;
+          this.timing = 0.08;
+        }
+
+        shiftItems() {
+          const values = Array.from(this.items).map((p) => p.textContent);
+          const shifted = [values[values.length - 1], ...values.slice(0, -1)];
+          this.items.forEach((p, i) => (p.textContent = shifted[i]));
+        }
+
+        runAnimation() {
+          return new Promise((resolve) => {
+            if (this.count > this.maxRepeats - 20) this.timing *= 1.05;
+
+            this.reel.style.animation = "none";
+            void this.reel.offsetWidth;
+            this.reel.style.animation = `moveDown ${this.timing}s linear`;
+
+            this.reel.addEventListener(
+              "animationend",
+              () => {
+                this.count++;
+                this.shiftItems();
+
+                // console.log("repeatition count: " + this.count);
+                if (this.count < this.maxRepeats) {
+                  resolve(false);
+                } else {
+                  this.reel.style.animationPlayState = "paused";
+                  this.reset();
+                  resolve(true);
+                }
+              },
+              { once: true }
+            );
+          });
+        }
+
+        async spin() {
+          let done = false;
+          while (!done) {
+            done = await this.runAnimation();
+          }
+        }
+      }
+
+      const reel1 = new Reel(".reel1", ".reel1 .item1 p");
+      const reel2 = new Reel(".reel2", ".reel2 .item2 p");
+      const reel3 = new Reel(".reel3", ".reel3 .item3 p");
+
+      function runAllThree() {
+        // offset to make the latter spin later
+        reel2.maxRepeats = reel2.maxRepeats + 20;
+        reel3.maxRepeats = reel2.maxRepeats + 20;
+
+        reel1.spin();
+        reel2.spin();
+        reel3.spin();
+      }
+    </script>
+    <!-- <script src="script.js"></script> -->
+  </body>
+</html>

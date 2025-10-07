@@ -4,104 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <style>
-      body {
-        overflow: hidden;
-      }
-
-      .center {
-        display: flex;
-        justify-content: center;
-      }
-
-      .slot {
-        display: flex;
-        justify-content: center;
-        gap: 50px;
-      }
-
-      .container {
-        background-color: #808080;
-        width: 100px;
-        height: 300px;
-        /* padding: 10px; */
-      }
-      .reel1,
-      .reel2,
-      .reel3 {
-        position: absolute;
-        display: grid;
-        grid-template-rows: auto auto auto;
-        background-color: white;
-        /* border: 1px solid black; */
-
-        /* animation: moveDown 1s linear; */
-        animation-play-state: paused;
-      }
-      .reel1 .item1,
-      .reel2 .item2,
-      .reel3 .item3 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100px;
-        height: 100px;
-        border: 1px solid black;
-        box-sizing: border-box;
-      }
-
-      .mask {
-        position: absolute;
-        width: 100px;
-        height: 400px;
-      }
-
-      .mask-top {
-        width: 100px;
-        height: 100px;
-        background-color: black;
-      }
-
-      .mask-visible {
-        width: 100px;
-        height: 300px;
-        box-sizing: border-box;
-        border: 5px solid gray;
-        box-shadow: inset 0 50px 50px -50px rgba(0, 0, 0, 0.5),
-          /* top inner */ inset 0 -50px 50px -50px rgba(0, 0, 0, 0.5); /* bottom inner */
-      }
-
-      .mask-bottom {
-        width: 100px;
-        height: 500px;
-        background-color: black;
-      }
-
-      /* IMAGESSSS--------------- */
-      .item1 img,
-      .item2 img,
-      .item3 img {
-        max-width: 80px;
-      }
-
-      #bar-triple {
-        max-width: 60px;
-      }
-
-      #bar-double {
-        max-width: 70px;
-      }
-      /* IMAGESSSS--------------- */
-
-      @keyframes moveDown {
-        0% {
-          transform: translateY(0);
-        }
-        100% {
-          transform: translateY(100px);
-        }
-      }
-    </style>
   </head>
   <body>
     <div class="center">
@@ -149,34 +51,34 @@
         <div class="container">
           <div class="reel2">
             <div class="item2">
-              <img id="seven-red" src="./asset/seven-red.png" alt="" />
-            </div>
-            <div class="item2">
-              <img id="cherry" src="./asset/cherry.png" alt="" />
-            </div>
-            <div class="item2">
               <img id="bar-single" src="./asset/bar-single.png" alt="" />
-            </div>
-            <div class="item2">
-              <img id="lemon" src="./asset/lemon.png" alt="" />
-            </div>
-            <div class="item2">
-              <img id="bell" src="./asset/bell.png" alt="" />
-            </div>
-            <div class="item2">
-              <img id="seven-white" src="./asset/seven-white.png" alt="" />
-            </div>
-            <div class="item2">
-              <img id="watermelon" src="./asset/watermelon.png" alt="" />
-            </div>
-            <div class="item2">
-              <img id="bar-triple" src="./asset/bar-triple.png" alt="" />
             </div>
             <div class="item2">
               <img id="seven-blue" src="./asset/seven-blue.png" alt="" />
             </div>
             <div class="item2">
+              <img id="watermelon" src="./asset/watermelon.png" alt="" />
+            </div>
+            <div class="item2">
               <img id="bar-double" src="./asset/bar-double.png" alt="" />
+            </div>
+            <div class="item2">
+              <img id="lemon" src="./asset/lemon.png" alt="" />
+            </div>
+            <div class="item2">
+              <img id="cherry" src="./asset/cherry.png" alt="" />
+            </div>
+            <div class="item2">
+              <img id="bar-triple" src="./asset/bar-triple.png" alt="" />
+            </div>
+            <div class="item2">
+              <img id="bell" src="./asset/bell.png" alt="" />
+            </div>
+            <div class="item2">
+              <img id="seven-red" src="./asset/seven-red.png" alt="" />
+            </div>
+            <div class="item2">
+              <img id="seven-white" src="./asset/seven-white.png" alt="" />
             </div>
           </div>
           <div class="mask">
@@ -189,25 +91,16 @@
         <div class="container">
           <div class="reel3">
             <div class="item3">
-              <img id="seven-red" src="./asset/seven-red.png" alt="" />
+              <img id="bell" src="./asset/bell.png" alt="" />
             </div>
             <div class="item3">
               <img id="cherry" src="./asset/cherry.png" alt="" />
             </div>
             <div class="item3">
-              <img id="bar-single" src="./asset/bar-single.png" alt="" />
+              <img id="bar-double" src="./asset/bar-double.png" alt="" />
             </div>
             <div class="item3">
-              <img id="lemon" src="./asset/lemon.png" alt="" />
-            </div>
-            <div class="item3">
-              <img id="bell" src="./asset/bell.png" alt="" />
-            </div>
-            <div class="item3">
-              <img id="seven-white" src="./asset/seven-white.png" alt="" />
-            </div>
-            <div class="item3">
-              <img id="watermelon" src="./asset/watermelon.png" alt="" />
+              <img id="seven-red" src="./asset/seven-red.png" alt="" />
             </div>
             <div class="item3">
               <img id="bar-triple" src="./asset/bar-triple.png" alt="" />
@@ -216,7 +109,16 @@
               <img id="seven-blue" src="./asset/seven-blue.png" alt="" />
             </div>
             <div class="item3">
-              <img id="bar-double" src="./asset/bar-double.png" alt="" />
+              <img id="seven-white" src="./asset/seven-white.png" alt="" />
+            </div>
+            <div class="item3">
+              <img id="watermelon" src="./asset/watermelon.png" alt="" />
+            </div>
+            <div class="item3">
+              <img id="bar-single" src="./asset/bar-single.png" alt="" />
+            </div>
+            <div class="item3">
+              <img id="lemon" src="./asset/lemon.png" alt="" />
             </div>
           </div>
           <div class="mask">
@@ -227,86 +129,13 @@
         </div>
       </div>
 
-      <div>
-        <button onclick="runAllThree()">-----SPIN-----</button>
+      <div class="lever-wrapper">
+        <img src="./asset/symmetric_lever.png" class="lever" />
+        <img src="./asset/symmetric_base.png" class="base" />
       </div>
     </div>
 
-    <script>
-      class Reel {
-        constructor(reelSelector, itemSelector) {
-          this.reel = document.querySelector(reelSelector);
-          // this.items = document.querySelectorAll(itemSelector);
-          this.reset();
-        }
-
-        reset() {
-          this.maxRepeats = Math.floor(Math.random() * (20 + 1)) + 30;
-          this.count = 0;
-          this.timing = 0.08;
-        }
-
-        // shiftItems() {
-        //   const values = Array.from(this.items).map((p) => p.textContent);
-        //   const shifted = [values[values.length - 1], ...values.slice(0, -1)];
-        //   this.items.forEach((p, i) => (p.textContent = shifted[i]));
-        // }
-
-        shiftItems() {
-          const last = this.reel.lastElementChild;
-          this.reel.insertBefore(last, this.reel.firstElementChild);
-        }
-
-        runAnimation() {
-          return new Promise((resolve) => {
-            if (this.count > this.maxRepeats - 20) this.timing *= 1.05;
-
-            this.reel.style.animation = "none";
-            void this.reel.offsetWidth;
-            this.reel.style.animation = `moveDown ${this.timing}s linear`;
-
-            this.reel.addEventListener(
-              "animationend",
-              () => {
-                this.count++;
-                this.shiftItems();
-
-                // console.log("repeatition count: " + this.count);
-                if (this.count < this.maxRepeats) {
-                  resolve(false);
-                } else {
-                  this.reel.style.animationPlayState = "paused";
-                  this.reset();
-                  resolve(true);
-                }
-              },
-              { once: true }
-            );
-          });
-        }
-
-        async spin() {
-          let done = false;
-          while (!done) {
-            done = await this.runAnimation();
-          }
-        }
-      }
-
-      const reel1 = new Reel(".reel1", ".reel1 .item1 p");
-      const reel2 = new Reel(".reel2", ".reel2 .item2 p");
-      const reel3 = new Reel(".reel3", ".reel3 .item3 p");
-
-      function runAllThree() {
-        // offset to make the latter spin later
-        reel2.maxRepeats = reel2.maxRepeats + 20;
-        reel3.maxRepeats = reel2.maxRepeats + 20;
-
-        reel1.spin();
-        reel2.spin();
-        reel3.spin();
-      }
-    </script>
+    <script src="script.js"></script>
     <!-- <script src="script.js"></script> -->
   </body>
 </html>

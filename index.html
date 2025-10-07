@@ -67,7 +67,8 @@
         height: 300px;
         box-sizing: border-box;
         border: 5px solid gray;
-        box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+        box-shadow: inset 0 50px 50px -50px rgba(0, 0, 0, 0.5),
+          /* top inner */ inset 0 -50px 50px -50px rgba(0, 0, 0, 0.5); /* bottom inner */
       }
 
       .mask-bottom {
@@ -75,6 +76,22 @@
         height: 500px;
         background-color: black;
       }
+
+      /* IMAGESSSS--------------- */
+      .item1 img,
+      .item2 img,
+      .item3 img {
+        max-width: 80px;
+      }
+
+      #bar-triple {
+        max-width: 60px;
+      }
+
+      #bar-double {
+        max-width: 70px;
+      }
+      /* IMAGESSSS--------------- */
 
       @keyframes moveDown {
         0% {
@@ -91,14 +108,36 @@
       <div class="slot">
         <div class="container">
           <div class="reel1">
-            <div class="item1"><p>1</p></div>
-            <div class="item1"><p>2</p></div>
-            <div class="item1"><p>3</p></div>
-            <div class="item1"><p>4</p></div>
-            <div class="item1"><p>5</p></div>
-            <div class="item1"><p>6</p></div>
-            <div class="item1"><p>7</p></div>
-            <div class="item1"><p>8</p></div>
+            <div class="item1">
+              <img id="seven-red" src="./asset/seven-red.png" alt="" />
+            </div>
+            <div class="item1">
+              <img id="cherry" src="./asset/cherry.png" alt="" />
+            </div>
+            <div class="item1">
+              <img id="bar-single" src="./asset/bar-single.png" alt="" />
+            </div>
+            <div class="item1">
+              <img id="lemon" src="./asset/lemon.png" alt="" />
+            </div>
+            <div class="item1">
+              <img id="bell" src="./asset/bell.png" alt="" />
+            </div>
+            <div class="item1">
+              <img id="seven-white" src="./asset/seven-white.png" alt="" />
+            </div>
+            <div class="item1">
+              <img id="watermelon" src="./asset/watermelon.png" alt="" />
+            </div>
+            <div class="item1">
+              <img id="bar-triple" src="./asset/bar-triple.png" alt="" />
+            </div>
+            <div class="item1">
+              <img id="seven-blue" src="./asset/seven-blue.png" alt="" />
+            </div>
+            <div class="item1">
+              <img id="bar-double" src="./asset/bar-double.png" alt="" />
+            </div>
           </div>
           <div class="mask">
             <div class="mask-top"></div>
@@ -106,16 +145,39 @@
             <div class="mask-bottom"></div>
           </div>
         </div>
+        <!-- SECOND REEL ---------------------------------------------- -->
         <div class="container">
           <div class="reel2">
-            <div class="item2"><p>1</p></div>
-            <div class="item2"><p>2</p></div>
-            <div class="item2"><p>3</p></div>
-            <div class="item2"><p>4</p></div>
-            <div class="item2"><p>5</p></div>
-            <div class="item2"><p>6</p></div>
-            <div class="item2"><p>7</p></div>
-            <div class="item2"><p>8</p></div>
+            <div class="item2">
+              <img id="seven-red" src="./asset/seven-red.png" alt="" />
+            </div>
+            <div class="item2">
+              <img id="cherry" src="./asset/cherry.png" alt="" />
+            </div>
+            <div class="item2">
+              <img id="bar-single" src="./asset/bar-single.png" alt="" />
+            </div>
+            <div class="item2">
+              <img id="lemon" src="./asset/lemon.png" alt="" />
+            </div>
+            <div class="item2">
+              <img id="bell" src="./asset/bell.png" alt="" />
+            </div>
+            <div class="item2">
+              <img id="seven-white" src="./asset/seven-white.png" alt="" />
+            </div>
+            <div class="item2">
+              <img id="watermelon" src="./asset/watermelon.png" alt="" />
+            </div>
+            <div class="item2">
+              <img id="bar-triple" src="./asset/bar-triple.png" alt="" />
+            </div>
+            <div class="item2">
+              <img id="seven-blue" src="./asset/seven-blue.png" alt="" />
+            </div>
+            <div class="item2">
+              <img id="bar-double" src="./asset/bar-double.png" alt="" />
+            </div>
           </div>
           <div class="mask">
             <div class="mask-top"></div>
@@ -123,16 +185,39 @@
             <div class="mask-bottom"></div>
           </div>
         </div>
+        <!-- THIRD REEL -------------------------------------- -->
         <div class="container">
           <div class="reel3">
-            <div class="item3"><p>1</p></div>
-            <div class="item3"><p>2</p></div>
-            <div class="item3"><p>3</p></div>
-            <div class="item3"><p>4</p></div>
-            <div class="item3"><p>5</p></div>
-            <div class="item3"><p>6</p></div>
-            <div class="item3"><p>7</p></div>
-            <div class="item3"><p>8</p></div>
+            <div class="item3">
+              <img id="seven-red" src="./asset/seven-red.png" alt="" />
+            </div>
+            <div class="item3">
+              <img id="cherry" src="./asset/cherry.png" alt="" />
+            </div>
+            <div class="item3">
+              <img id="bar-single" src="./asset/bar-single.png" alt="" />
+            </div>
+            <div class="item3">
+              <img id="lemon" src="./asset/lemon.png" alt="" />
+            </div>
+            <div class="item3">
+              <img id="bell" src="./asset/bell.png" alt="" />
+            </div>
+            <div class="item3">
+              <img id="seven-white" src="./asset/seven-white.png" alt="" />
+            </div>
+            <div class="item3">
+              <img id="watermelon" src="./asset/watermelon.png" alt="" />
+            </div>
+            <div class="item3">
+              <img id="bar-triple" src="./asset/bar-triple.png" alt="" />
+            </div>
+            <div class="item3">
+              <img id="seven-blue" src="./asset/seven-blue.png" alt="" />
+            </div>
+            <div class="item3">
+              <img id="bar-double" src="./asset/bar-double.png" alt="" />
+            </div>
           </div>
           <div class="mask">
             <div class="mask-top"></div>
@@ -151,7 +236,7 @@
       class Reel {
         constructor(reelSelector, itemSelector) {
           this.reel = document.querySelector(reelSelector);
-          this.items = document.querySelectorAll(itemSelector);
+          // this.items = document.querySelectorAll(itemSelector);
           this.reset();
         }
 
@@ -161,10 +246,15 @@
           this.timing = 0.08;
         }
 
+        // shiftItems() {
+        //   const values = Array.from(this.items).map((p) => p.textContent);
+        //   const shifted = [values[values.length - 1], ...values.slice(0, -1)];
+        //   this.items.forEach((p, i) => (p.textContent = shifted[i]));
+        // }
+
         shiftItems() {
-          const values = Array.from(this.items).map((p) => p.textContent);
-          const shifted = [values[values.length - 1], ...values.slice(0, -1)];
-          this.items.forEach((p, i) => (p.textContent = shifted[i]));
+          const last = this.reel.lastElementChild;
+          this.reel.insertBefore(last, this.reel.firstElementChild);
         }
 
         runAnimation() {

@@ -1,3 +1,16 @@
+const symbols = [
+    "watermelon",
+    "cherry",
+    "lemon",
+    "bell",
+    "bar-single",
+    "bar-double",
+    "bar-triple",
+    "seven-white",
+    "seven-blue",
+    "seven-red",
+]
+
 class Reel {
     constructor(reelSelector) {
         this.reel = document.querySelector(reelSelector);
@@ -71,6 +84,19 @@ function resetLever() {
     img.style.transform = 'rotate(0deg)';
 }
 
+
+function checkwin() {
+    resetLever();
+
+    let winning = [];
+    for (let i = 0; i < 3; i++) {
+        let symbols = document.querySelector(".reel" + (i + 1)).children;
+        winning.push(symbols[2].firstElementChild.id);
+    }
+
+    console.log(winning);
+}
+
 const reel1 = new Reel(".reel1");
 const reel2 = new Reel(".reel2");
 const reel3 = new Reel(".reel3");
@@ -87,5 +113,5 @@ function runAllThree() {
 
     reel1.spin();
     reel2.spin();
-    reel3.spin(resetLever());
+    reel3.spin(checkwin);
 }

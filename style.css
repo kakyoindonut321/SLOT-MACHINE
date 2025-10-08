@@ -1,3 +1,8 @@
+:root {
+    --main-width: 100px;
+    --main-height: 100px;
+}
+
 html, body {
     padding: 0;
     margin: 0;
@@ -15,17 +20,17 @@ body {
 .slot {
     display: flex;
     justify-content: center;
-    padding: 10px;
-    gap: 20px;
+    padding: calc(var(--main-width) * 0.1);
+    gap: calc(var(--main-width) * 0.2);
     background-color: black;
-    height: 800px;
-    border: 10px solid gray;
+    height: 1000px;
+    border: calc(var(--main-width) * 0.1) solid gray;
 }
 
 .container {
     background-color: #808080;
-    width: 100px;
-    height: 300px;
+    width: var(--main-width);
+    /* height: 300px; */
     /* padding: 10px; */
 }
 
@@ -48,38 +53,38 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100px;
-    height: 100px;
-    border: 1px solid black;
+    width: var(--main-width);
+    height: var(--main-height);
+    /* border: 1px solid black; */
     box-sizing: border-box;
 }
 
 .mask {
     position: absolute;
-    width: 100px;
-    height: 400px;
+    width: var(--main-width);
+    /* height: 400px; */
 }
 
 .mask-top {
-    width: 100px;
-    height: 120px;
+    width: var(--main-width);
+    height: calc(var(--main-height) * 1.2);
     background-color: black;
 }
 
 .mask-visible {
-    width: 100px;
-    height: 250px;
+    width: var(--main-width);
+    height: calc(var(--main-height) * 2.5);
     box-sizing: border-box;
-    border: 5px solid gray;
-    box-shadow: inset 0 50px 50px -50px rgba(0, 0, 0, 0.8),
+    border: calc(var(--main-width) * 0.05) solid gray;
+    box-shadow: inset 0 calc(var(--main-height) / 2) calc(var(--main-height) / 2) calc(var(--main-height) / -2) rgba(0, 0, 0, 0.8),
         /* top inner */
-        inset 0 -50px 50px -50px rgba(0, 0, 0, 0.8);
+        inset 0 calc(var(--main-height) / -2) calc(var(--main-height) / 2) calc(var(--main-height) / -2) rgba(0, 0, 0, 0.8);
     /* bottom inner */
 }
 
 .mask-bottom {
-    width: 100px;
-    height: 500px;
+    width: var(--main-width);
+    height: calc(var(--main-height) * 10);
     background-color: black;
 }
 
@@ -87,33 +92,33 @@ body {
 .item1 img,
 .item2 img,
 .item3 img {
-    max-width: 80px;
+    max-width: calc(var(--main-width) * 0.8);
 }
 
 #bar-triple {
-    max-width: 60px;
+    max-width: calc(var(--main-width) * 0.6);
 }
 
 #bar-double {
-    max-width: 70px;
+    max-width: calc(var(--main-width) * 0.7);
 }
 
 /* END IMAGESSSS--------------- */
 
 .lever-wrapper {
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: calc(var(--main-width) * 2);
+    height: calc(var(--main-height) * 2);
 }
 
 /* Both images fill the container */
 .lever-wrapper img {
     position: absolute;
     top: 0;
-    left: -62px;
+    left: calc(var(--main-width) * -0.62);
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    /* object-fit: cover; */
     /* keep aspect ratio & fill */
 }
 
@@ -127,12 +132,106 @@ body {
     transition: transform 0.4s ease;
 }
 
+.header {
+    position: absolute;
+    width: calc(var(--main-width) * 3.4);
+    height: calc(var(--main-height));
+    background-color: red;
+}
+
+.menu {
+    position: absolute;
+    width: calc(var(--main-width) * 3.4);
+    height: calc(var(--main-height));
+    background-color: red;
+    top: calc(var(--main-height) * 4.1);
+
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.spin-button {
+    width: calc(var(--main-width) / 2);
+    height: calc(var(--main-height) / 2);
+    border-radius: calc(var(--main-width) * 0.1);
+    border: 2px solid #585858;
+    background-color: #c28e55;
+    box-shadow: inset 0px 0px 10px #ffd3a3, 0px 5px 1px #262626;;
+    color: #9d4f00;
+    font-weight: bold;
+
+    animation: flicker 1.5s linear infinite forwards;
+}
+
+.spin-button:active {
+    box-shadow: inset 0px 0px 15px #fab468, 0px 2px 1px #2e2e2e;
+    transform: translateY(3px);
+}
+
 @keyframes moveDown {
     0% {
         transform: translateY(0);
     }
 
     100% {
-        transform: translateY(100px);
+        transform: translateY(var(--main-width));
     }
 }
+
+@keyframes flicker {
+    0% {
+        box-shadow: inset 0px 0px 10px #ffd3a3, 0px 5px 1px #262626;
+        color: #9d4f00;
+    }
+
+    49% {
+        box-shadow: inset 0px 0px 10px #ffd3a3, 0px 5px 1px #262626;
+        color: #9d4f00;
+    }
+
+    50% {
+        box-shadow: inset 0px 0px 15px #ffd3a3, 0px 5px 1px #262626;
+        color: #a9611a;
+    }
+
+    100% {
+        box-shadow: inset 0px 0px 15px #ffd3a3, 0px 5px 1px #262626;
+        color: #a9611a;
+    }
+}
+
+@media (max-width: 600px) {
+    :root {
+        --main-width: 80px;
+        --main-height: 80px;
+    }
+}
+
+/* @media (max-width: 550px) {
+    :root {
+        --main-width: 70px;
+        --main-height: 70px;
+    }
+} */
+
+/* @media (max-width: 500px) {
+    :root {
+        --main-width: 60px;
+        --main-height: 60px;
+    }
+} */
+
+/* @media (max-width: 450px) {
+    :root {
+        --main-width: 50px;
+        --main-height: 50px;
+    }
+} */
+
+/* @media (max-width: 400px) {
+    :root {
+        --main-width: 40px;
+        --main-height: 40px;
+    }
+} */

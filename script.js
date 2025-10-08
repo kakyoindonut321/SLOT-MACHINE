@@ -68,25 +68,25 @@ class Reel {
     }
 }
 
-const wrapper = document.querySelector('.lever-wrapper');
-wrapper.addEventListener('click', () => {
-    runAllThree();
-    rotateLever();
-});
+// const wrapper = document.querySelector('.lever-wrapper');
+// wrapper.addEventListener('click', () => {
+//     runAllThree();
+//     rotateLever();
+// });
 
-const img = document.querySelector('.lever');
+// const img = document.querySelector('.lever');
 
-function rotateLever() {
-    img.style.transform = 'rotate(90deg)';
-}
+// function rotateLever() {
+//     img.style.transform = 'rotate(90deg)';
+// }
 
-function resetLever() {
-    img.style.transform = 'rotate(0deg)';
-}
+// function resetLever() {
+//     img.style.transform = 'rotate(0deg)';
+// }
 
 
 function checkwin() {
-    resetLever();
+    // resetLever();
 
     let winning = [];
     for (let i = 0; i < 3; i++) {
